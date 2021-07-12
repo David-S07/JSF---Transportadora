@@ -28,7 +28,7 @@ public class CompromissoBean {
 		compromisso = compromissoService.salvar(compromisso);
 		limpar();
 		FacesContext.getCurrentInstance().addMessage(null,
-				new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Compromisso cadastrado com sucesso"));
+				new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Compromisso salvo com sucesso"));
 	}
 
 	public String editar(Compromisso compromisso) {
