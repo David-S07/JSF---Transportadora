@@ -4,9 +4,7 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
-
-<h:head>
+	xmlns:p="http://primefaces.org/ui"> <h:head>
 	<f:facet name="first">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -14,33 +12,27 @@
 			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 	</f:facet>
-</h:head>
-
-<h:body>
+</h:head> <h:body>
 	<p:layout fullPage="true">
-	
-	<p:layoutUnit position="north" size="85" >
-	        	<ui:include src="topo.xhtml"/>
-     </p:layoutUnit>
-        
-        	
-	<p:layoutUnit position="south" >	
-      <ui:include src="footer.xhtml" />	
-     </p:layoutUnit>
-     
-     
-	 <p:layoutUnit position="west" >	
-        	<ui:include src="layoutmenu.xhtml" />
-     </p:layoutUnit>
 
+		<p:layoutUnit position="north" size="85">
+			<ui:include src="topo.xhtml" />
+		</p:layoutUnit>
 
-	 <p:layoutUnit position="center" >
-       		<ui:insert name="corpo"> </ui:insert>
-      </p:layoutUnit>
-      
+		<p:layoutUnit position="south">
+			<ui:include src="footer.xhtml" />
+		</p:layoutUnit>
+
+		<p:layoutUnit position="west">
+			<ui:include src="layoutmenu.xhtml" />
+		</p:layoutUnit>
+
+		<p:layoutUnit position="center">
+			<ui:insert name="corpo">
+			</ui:insert>
+		</p:layoutUnit>
 	</p:layout>
-		
-		
+
 	<h:outputScript name="js/ripple-effect.js" library="adamantium-layout" />
 	<h:outputScript name="js/perfect-scrollbar.js"
 		library="adamantium-layout" />
@@ -58,6 +50,5 @@
 		library="adamantium-layout" />
 	<h:outputStylesheet name="css/adamantium-layout.css"
 		library="adamantium-layout" />
-</h:body>
-
+</h:body> 
 </html>

@@ -1,27 +1,20 @@
 package br.com.agendajuiz.model;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
-import java.util.concurrent.ThreadLocalRandom;
 
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Compromisso implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -39,8 +32,7 @@ public class Compromisso implements Serializable {
 	private String local;
 
 	private String nome;
-	
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -99,15 +91,9 @@ public class Compromisso implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Compromisso{" +
-				"id=" + id +
-				", anotacoes='" + anotacoes + '\'' +
-				", dataHoraFim=" + dataHoraFim +
-				", dataHoraInicio=" + dataHoraInicio +
-				", linkVideoConferencia='" + linkVideoConferencia + '\'' +
-				", local='" + local + '\'' +
-				", nome='" + nome + '\'' +
-				'}';
+		return "Compromisso{" + "id=" + id + ", anotacoes='" + anotacoes + '\'' + ", dataHoraFim=" + dataHoraFim
+				+ ", dataHoraInicio=" + dataHoraInicio + ", linkVideoConferencia='" + linkVideoConferencia + '\''
+				+ ", local='" + local + '\'' + ", nome='" + nome + '\'' + '}';
 	}
 
 }

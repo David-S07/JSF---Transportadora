@@ -21,7 +21,7 @@
 								filterBy="#{compromisso.nome}">
 								<h:outputText value="#{compromisso.nome}" />
 							</p:column>
-							<p:column headerText="Data/Hora Inicio"
+							<p:column headerText="Data/Hora Inicio" sortBy="#{compromisso.dataHoraInicio}"
 								filterBy="#{compromisso.dataHoraInicio}">
 								<h:outputText value="#{compromisso.dataHoraInicio}">
 									<f:convertDateTime pattern="dd/MM/yyyy - HH:mm" />
