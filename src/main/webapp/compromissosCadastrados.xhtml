@@ -1,0 +1,80 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/WEB-INF/template.xhtml"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<ui:define name="corpo">
+		<title>Compromissos</title>
+
+		<h:form id="compromissoForm">
+			<p:tabView>
+				<p:tab title="Compromissos cadastrados">
+					<h:panelGrid columns="1" cellpadding="10">
+						<p:dataTable id="compr"
+							value="#{compromissoBean.obterCompromissos()}" var="compromisso"
+							border="1">
+							<p:column headerText="Id" sortBy="#{compromisso.id}"
+								filterBy="#{compromisso.id}">
+								<h:outputText value="#{compromisso.id}" />
+							</p:column>
+							<p:column headerText="Nome" sortBy="#{compromisso.nome}"
+								filterBy="#{compromisso.nome}">
+								<h:outputText value="#{compromisso.nome}" />
+							</p:column>
+							<p:column headerText="Data/Hora Inicio"
+								filterBy="#{compromisso.dataHoraInicio}">
+								<h:outputText value="#{compromisso.dataHoraInicio}">
+									<f:convertDateTime pattern="dd/MM/yyyy - HH:mm" />
+								</h:outputText>
+							</p:column>
+							<p:column headerText="Data/Hora Fim"
+								sortBy="#{compromisso.dataHoraFim}"
+								filterBy="#{compromisso.dataHoraFim}">
+								<h:outputText value="#{compromisso.dataHoraFim}">
+									<f:convertDateTime pattern="dd/MM/yyyy - HH:mm" />
+								</h:outputText>
+							</p:column>
+							<p:column headerText="Local" sortBy="#{compromisso.local}"
+								filterBy="#{compromisso.local}">
+								<h:outputText value="#{compromisso.local}" />
+							</p:column>
+							<p:column headerText="Links"
+								sortBy="#{compromisso.linkVideoConferencia}"
+								filterBy="#{compromisso.linkVideoConferencia}">
+								<h:outputText value="#{compromisso.linkVideoConferencia}" />
+							</p:column>
+							<p:column headerText="Anotações"
+								sortBy="#{compromisso.anotacoes}"
+								filterBy="#{compromisso.anotacoes}">
+								<h:outputText value="#{compromisso.anotacoes}" />
+							</p:column>
+							<p:column>
+								<p:commandButton
+									action="#{compromissoBean.editar(compromisso)}"
+									value="Editar" image="ui-icon-tag" update="compromissoForm">
+								</p:commandButton>
+							</p:column>
+							<p:column>
+								<p:commandButton
+									actionListener="#{compromissoBean.excluir(compromisso.id)}"
+									value="Excluir" image="ui-icon-trash" update="compromissoForm">
+									<p:confirm header="Confirmação"
+										message="Deseja realmente excluir este compromisso?"
+										icon="pi pi-exclamation-triangle" />
+								</p:commandButton>
+								<p:confirmDialog global="true" showEffect="fade"
+									hideEffect="fade" responsive="true" width="350">
+									<p:commandButton value="Não" type="button"
+										styleClass="ui-confirmdialog-no ui-button-flat" />
+									<p:commandButton value="Sim" type="button"
+										styleClass="ui-confirmdialog-yes" />
+								</p:confirmDialog>
+
+							</p:column>
+						</p:dataTable>
+					</h:panelGrid>
+				</p:tab>
+			</p:tabView>
+		</h:form>
+	</ui:define>
+</ui:composition>

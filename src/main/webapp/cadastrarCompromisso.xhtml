@@ -1,0 +1,54 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <ui:define name="corpo">
+        <title>Cadastrar Compromisso</title>
+
+        <h:form id="compromissoForm">
+            <p:tabView>
+                <p:tab title="Cadastrar Compromisso">
+                    <p:growl id="message" showDetail="true"/>
+                    <h:panelGrid columns="4" cellpadding="10">
+                        <p:outputLabel value="Nome:"/>
+                        <p:inputText value="#{compromissoBean.compromisso.nome}" size="55" placeholder="Ex: Do que se trata o compromisso"/>
+                        <p:outputLabel value="Link vídeo conferencia:"/>
+                        <p:inputText value="#{compromissoBean.compromisso.linkVideoConferencia}" size="55" placeholder="Ex: Link da sala que se realizará o compromisso"/>
+                        <p:outputLabel value="Local:"/>
+                        <p:inputText value="#{compromissoBean.compromisso.local}" size="55" placeholder="Ex: Local em que ocorrerá o compromisso"/>
+                        <p:outputLabel value="Tipo do serviço"/>
+                        <p:selectOneMenu filter="true">
+                            <f:selectItem itemValue="civil" itemLabel="Cívil"/>
+                            <f:selectItem itemValue="criminal" itemLabel="Criminal"/>
+                            <f:selectItem itemValue="trabalhista" itemLabel="Trabalhista"/>
+                            <f:selectItem itemValue="outros" itemLabel="Outros"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="Data/Hora Início"/>
+                        <p:calendar pattern="dd/MM/yyyy HH:mm" mask="99/99/9999 99:99" value="#{compromissoBean.compromisso.dataHoraInicio}" size="55" placeholder="Ex: 01/01/2000 00:00"/>
+                        <p:outputLabel value="Data/Hora Fim"/>
+                        <p:calendar pattern="dd/MM/yyyy HH:mm" mask="99/99/9999 99:99" value="#{compromissoBean.compromisso.dataHoraFim}" size="55" placeholder="Ex: 01/01/2000 00:00"/>
+                    </h:panelGrid>
+                </p:tab>
+
+                <p:tab title="Anotações sobre o compromisso">
+                    <h:panelGrid columns="1" cellpadding="1">
+                        <p:editor value="#{compromissoBean.compromisso.anotacoes}" size="500"/>
+                    </h:panelGrid>
+                </p:tab>
+            </p:tabView>
+
+            <p:panelGrid style="border:0px">
+                <p:commandButton value="Salvar" action="#{compromissoBean.salvar()}" update="compromissoForm">
+                    <p:confirm header="Confirmação" message="Deseja realmente cadastrar este compromisso?" icon="pi pi-exclamation-triangle"/>
+                </p:commandButton>
+
+                <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" responsive="true" width="350">
+                    <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no ui-button-flat"/>
+                    <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" />
+                </p:confirmDialog>
+            </p:panelGrid>
+        </h:form>
+    </ui:define>
+</ui:composition>
