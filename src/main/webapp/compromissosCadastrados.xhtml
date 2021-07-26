@@ -10,7 +10,7 @@
 			<p:tabView>
 				<p:tab title="Compromissos cadastrados">
 					<h:panelGrid columns="1" cellpadding="10">
-						<p:dataTable id="compr"
+						<p:dataTable id="compr" emptyMessage="Nenhum compromisso cadastrado"
 							value="#{compromissoBean.obterCompromissos()}" var="compromisso"
 							border="1">
 							<p:column headerText="Id" sortBy="#{compromisso.id}"
