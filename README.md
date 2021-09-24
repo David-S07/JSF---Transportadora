@@ -13,3 +13,4 @@ estou pesquisando e procurando uma forma de corrigir e deixar padronizado "dia/m
 2- O banco de dados utilizado foi o H2 
 3- O servidor de aplicação utilizado foi o wildfly 16
 # Angular--Transportadora
+# JSF---Transportadora

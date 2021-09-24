@@ -20,6 +20,7 @@ import br.com.transportadora.service.RastreioService;
 public class RastreioBean {
 
 	private Rastreio rastreio;
+	private Rastreio codigoRastreio;
 
 	@Autowired
 	private RastreioService rastreioService;
@@ -33,6 +34,11 @@ public class RastreioBean {
 
 	public String editar(Rastreio rastreio) {
 		this.rastreio = rastreio;
+		return "/cadastrarRastreio.xhtml?faces-redirect=true";
+	}
+
+	public String pesquisar (Rastreio codigoRastreio) {
+		this.codigoRastreio = codigoRastreio;
 		return "/cadastrarRastreio.xhtml?faces-redirect=true";
 	}
 

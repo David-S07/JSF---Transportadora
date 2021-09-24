@@ -4,60 +4,60 @@
 	xmlns:p="http://primefaces.org/ui" template="/WEB-INF/template.xhtml"
 	xmlns:f="http://java.sun.com/jsf/core">
 	<ui:define name="corpo">
-		<title>Compromissos</title>
+		<title>Rastreios</title>
 
-		<h:form id="compromissoForm">
+		<h:form id="rastreioForm">
 			<p:tabView>
-				<p:tab title="Compromissos cadastrados">
+				<p:tab title="Rastreios cadastrados">
 					<h:panelGrid columns="1" cellpadding="10">
-						<p:dataTable id="compr" emptyMessage="Nenhum compromisso cadastrado"
-							value="#{compromissoBean.obterCompromissos()}" var="compromisso"
+						<p:dataTable id="compr" emptyMessage="Nenhum rastreio cadastrado"
+							value="#{rastreioBean.obterRastreios()}" var="rastreio"
 							border="1">
-							<p:column headerText="Id" sortBy="#{compromisso.id}"
-								filterBy="#{compromisso.id}">
-								<h:outputText value="#{compromisso.id}" />
+							<p:column headerText="Id" sortBy="#{rastreio.id}"
+								filterBy="#{rastreio.id}">
+								<h:outputText value="#{rastreio.id}" />
 							</p:column>
-							<p:column headerText="Nome" sortBy="#{compromisso.nome}"
-								filterBy="#{compromisso.nome}">
-								<h:outputText value="#{compromisso.nome}" />
+							<p:column headerText="Nome" sortBy="#{rastreio.nome}"
+								filterBy="#{rastreio.nome}">
+								<h:outputText value="#{rastreio.nome}" />
 							</p:column>
-							<p:column headerText="Data/Hora Inicio" sortBy="#{compromisso.dataHoraInicio}"
-								filterBy="#{compromisso.dataHoraInicio}">
-								<h:outputText value="#{compromisso.dataHoraInicio}"></h:outputText>
+							<p:column headerText="Data/Hora Inicio" sortBy="#{rastreio.dataHoraInicio}"
+								filterBy="#{rastreio.dataHoraInicio}">
+								<h:outputText value="#{rastreio.dataHoraInicio}"></h:outputText>
 							</p:column>
 							<p:column headerText="Data/Hora Fim"
-								sortBy="#{compromisso.dataHoraFim}"
-								filterBy="#{compromisso.dataHoraFim}">
-								<h:outputText value="#{compromisso.dataHoraFim}">
+								sortBy="#{rastreio.dataHoraFim}"
+								filterBy="#{rastreio.dataHoraFim}">
+								<h:outputText value="#{rastreio.dataHoraFim}">
 									<f:convertDateTime pattern="dd/MM/yyyy - HH:mm" />
 								</h:outputText>
 							</p:column>
-							<p:column headerText="Local" sortBy="#{compromisso.local}"
-								filterBy="#{compromisso.local}">
-								<h:outputText value="#{compromisso.local}" />
+							<p:column headerText="Local" sortBy="#{rastreio.local}"
+								filterBy="#{rastreio.local}">
+								<h:outputText value="#{rastreio.local}" />
 							</p:column>
-							<p:column headerText="Links"
-								sortBy="#{compromisso.linkVideoConferencia}"
-								filterBy="#{compromisso.linkVideoConferencia}">
-								<h:outputText value="#{compromisso.linkVideoConferencia}" />
+							<p:column headerText="Códigos de Rastreios"
+								sortBy="#{rastreio.codigoRastreio}"
+								filterBy="#{rastreio.codigoRastreio}">
+								<h:outputText value="#{rastreio.codigoRastreio}" />
 							</p:column>
 							<p:column headerText="Anotações"
-								sortBy="#{compromisso.anotacoes}"
-								filterBy="#{compromisso.anotacoes}">
-								<h:outputText value="#{compromisso.anotacoes}" />
+								sortBy="#{rastreio.anotacoes}"
+								filterBy="#{rastreio.anotacoes}">
+								<h:outputText value="#{rastreio.anotacoes}" />
 							</p:column>
 							<p:column>
 								<p:commandButton
-									action="#{compromissoBean.editar(compromisso)}"
-									value="Editar" image="ui-icon-tag" update="compromissoForm">
+									action="#{rastreioBean.editar(rastreio)}"
+									value="Editar" image="ui-icon-tag" update="rastreioForm">
 								</p:commandButton>
 							</p:column>
 							<p:column>
 								<p:commandButton
-									actionListener="#{compromissoBean.excluir(compromisso.id)}"
-									value="Excluir" image="ui-icon-trash" update="compromissoForm">
+									actionListener="#{rastreioBean.excluir(rastreio.id)}"
+									value="Excluir" image="ui-icon-trash" update="rastreioForm">
 									<p:confirm header="Confirmação"
-										message="Deseja realmente excluir este compromisso?"
+										message="Deseja realmente excluir este rastreio?"
 										icon="pi pi-exclamation-triangle" />
 								</p:commandButton>
 								<p:confirmDialog global="true" showEffect="fade"

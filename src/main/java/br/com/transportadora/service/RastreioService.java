@@ -7,27 +7,31 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.transportadora.model.Compromisso;
-import br.com.transportadora.repository.CompromissoRepository;
+import br.com.transportadora.model.Rastreio;
+import br.com.transportadora.repository.RastreioRepository;
 
 @Service
-public class CompromissoService {
+public class RastreioService {
 
 	@Autowired
-	private CompromissoRepository compromissoRepository;
+	private RastreioRepository rastreioRepository;
+
+	@Autowired
+	private RastreioRepository codigoRastreioRepository;
 
 	@Transactional(propagation = Propagation.REQUIRED)
-	public Compromisso salvar(Compromisso compromisso) {
-		return compromissoRepository.save(compromisso);
+	public Rastreio salvar(Rastreio rastreio) {
+		return rastreioRepository.save(rastreio);
 	}
 
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void excluir(Long id) {
-		compromissoRepository.delete(id);
+		rastreioRepository.delete(id);
 	}
 
 	@Transactional(readOnly = true)
-	public List<Compromisso> obterTodos() {
-		return compromissoRepository.findAll();
+	public List<Rastreio> obterTodos() {
+		return rastreioRepository.findAll();
 	}
 }
+

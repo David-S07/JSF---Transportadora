@@ -10,17 +10,17 @@
         http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <context:component-scan base-package="br.com.agendajuiz" />
+    <context:component-scan base-package="br.com.transportadora" />
 
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
-        <property name="persistenceUnitName" value="agendaJuiz" />
+        <property name="persistenceUnitName" value="transportadora" />
     </bean>
 
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory" />
     </bean>
 
-    <jpa:repositories base-package="br.com.agendajuiz.repository" />
+    <jpa:repositories base-package="br.com.transportadora.repository" />
 
     <tx:annotation-driven transaction-manager="transactionManager" />
 

@@ -5,48 +5,27 @@
                 template="/WEB-INF/template.xhtml"
                 xmlns:f="http://java.sun.com/jsf/core">
     <ui:define name="corpo">
-        <title>Cadastrar Rastreio</title>
+        <title>Ver status do rastreio</title>
 
-        <h:form id="rastreioForm">
-            <p:tabView>
-                <p:tab title="Cadastrar Rastreio">
-                    <p:growl id="message" showDetail="true"/>
-                    <h:panelGrid columns="4" cellpadding="10">
-                        <p:outputLabel value="Nome:"/>
-                        <p:inputText value="#{rastreioBean.rastreio.nome}" size="55" placeholder="Ex: Nome do comprador"/>
-                        <p:outputLabel value="Endereço:"/>
-                        <p:inputText value="#{rastreioBean.rastreio.local}" size="55" placeholder="Ex: Local em que ocorrerá a entrega"/>
-                        <p:outputLabel value="Tipo do serviço"/>
-                        <p:selectOneMenu filter="true">
-                            <f:selectItem itemValue="Express" itemLabel="Express"/>
-                            <f:selectItem itemValue="Comum" itemLabel="Comum"/>
-                            <f:selectItem itemValue="Agendada" itemLabel="Agendada"/>
-                            <f:selectItem itemValue="outros" itemLabel="Outros"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="Data/Hora Compra"/>
-                        <p:calendar pattern="dd/MM/yyyy HH:mm" mask="99/99/9999 99:99" value="#{rastreioBean.rastreio.dataHoraInicio}" size="55" placeholder="Ex: 01/01/2000 00:00"/>
-                        <p:outputLabel value="Data/Hora Entrega"/>
-                        <p:calendar pattern="dd/MM/yyyy HH:mm" mask="99/99/9999 99:99" value="#{rastreioBean.rastreio.dataHoraFim}" size="55" placeholder="Ex: 01/01/2000 00:00"/>
-                    </h:panelGrid>
-                </p:tab>
+        <h:form>
+            <p:panel id="panel" header="Search Form" style="margin-bottom:10px;">
+                <p:messages id="messages" />
 
-                <p:tab title="Anotações sobre o rastreio">
-                    <h:panelGrid columns="1" cellpadding="1">
-                        <p:editor value="#{rastreioBean.rastreio.anotacoes}" size="500"/>
-                    </h:panelGrid>
-                </p:tab>
-            </p:tabView>
+                <h:panelGrid columns="4" cellpadding="5">
+                    <h:outputLabel for="codigoRastreio" value="Código de rastreio: " />
+                    <p:inputText id="codigoRastreio" value="#{rastreioBean.rastreio.codigoRastreio}" required="true" label="Codigo Rastreio">
+                        <f:validateLength minimum="1" />
+                    </p:inputText>
+                    <p:message for="codigoRastreio" />
+                    <h:outputText value="#{rastreioBean.rastreio.codigoRastreio}" />
 
-            <p:panelGrid style="border:0px">
-                <p:commandButton value="Salvar" action="#{rastreioBean.salvar()}" update="rastreioForm">
-                    <p:confirm header="Confirmação" message="Deseja realmente salvar este rastreio?" icon="pi pi-exclamation-triangle"/>
-                </p:commandButton>
+                </h:panelGrid>
+            </p:panel>
 
-                <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" responsive="true" width="350">
-                    <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no ui-button-flat"/>
-                    <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" />
-                </p:confirmDialog>
-            </p:panelGrid>
+            <h:panelGrid columns="2">
+                <p:commandButton value="Pesquisar" action="#{rastreioBean.pesquisar(codigoRastreio)}" process="@parent:@parent" update="@form" />
+            </h:panelGrid>
         </h:form>
+
     </ui:define>
 </ui:composition>

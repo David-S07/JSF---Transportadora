@@ -27,7 +27,7 @@ public class Rastreio implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataHoraInicio;
 
-	private String linkVideoConferencia;
+	private Long codigoRastreio;
 
 	private String local;
 
@@ -65,12 +65,12 @@ public class Rastreio implements Serializable {
 		this.dataHoraInicio = dataHoraInicio;
 	}
 
-	public String getLinkVideoConferencia() {
-		return linkVideoConferencia;
+	public Long getCodigoRastreio() {
+		return codigoRastreio;
 	}
 
-	public void setLinkVideoConferencia(String linkVideoConferencia) {
-		this.linkVideoConferencia = linkVideoConferencia;
+	public void setCodigoRastreio(Long codigoRastreio) {
+		this.codigoRastreio = codigoRastreio;
 	}
 
 	public String getLocal() {
@@ -91,8 +91,8 @@ public class Rastreio implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Compromisso{" + "id=" + id + ", anotacoes='" + anotacoes + '\'' + ", dataHoraFim=" + dataHoraFim
-				+ ", dataHoraInicio=" + dataHoraInicio + ", linkVideoConferencia='" + linkVideoConferencia + '\''
+		return "Rastreio{" + "id=" + id + ", anotacoes='" + anotacoes + '\'' + ", dataHoraFim=" + dataHoraFim
+				+ ", dataHoraInicio=" + dataHoraInicio + ", codigoRastreio='" + codigoRastreio + '\''
 				+ ", local='" + local + '\'' + ", nome='" + nome + '\'' + '}';
 	}
 
