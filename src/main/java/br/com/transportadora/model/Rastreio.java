@@ -1,4 +1,4 @@
-package br.com.agendajuiz.model;
+package br.com.transportadora.model;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -11,7 +11,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Compromisso implements Serializable {
+public class Rastreio implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 

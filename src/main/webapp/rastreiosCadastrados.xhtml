@@ -23,9 +23,7 @@
 							</p:column>
 							<p:column headerText="Data/Hora Inicio" sortBy="#{compromisso.dataHoraInicio}"
 								filterBy="#{compromisso.dataHoraInicio}">
-								<h:outputText value="#{compromisso.dataHoraInicio}">
-									<f:convertDateTime pattern="dd/MM/yyyy - HH:mm" />
-								</h:outputText>
+								<h:outputText value="#{compromisso.dataHoraInicio}"></h:outputText>
 							</p:column>
 							<p:column headerText="Data/Hora Fim"
 								sortBy="#{compromisso.dataHoraFim}"

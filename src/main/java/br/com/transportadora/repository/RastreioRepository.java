@@ -1,9 +1,9 @@
-package br.com.agendajuiz.repository;
+package br.com.transportadora.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.com.agendajuiz.model.Compromisso;
+import br.com.transportadora.model.Compromisso;
 
 @Repository
 public interface CompromissoRepository extends JpaRepository<Compromisso, Long> {
